@@ -4,11 +4,14 @@
   "description": "CRUD de servicios de programacion",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index",
     "dev": "node --watch index"
-
   },
-  "keywords": ["middlewares", "endpoints", "controllers"],
+  "keywords": [
+    "middlewares",
+    "endpoints",
+    "controllers"
+  ],
   "author": "Nazarena Villafañez",
   "license": "ISC",
   "devEngines": {
@@ -18,5 +21,10 @@
       "onFail": "download"
     }
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "morgan": "^1.12.1"
+  }
 }
