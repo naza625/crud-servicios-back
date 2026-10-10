@@ -1,10 +1,13 @@
 import {Router} from 'express';
-import {prueba} from '../controllers/servicios.controllers.js';
+import {crearServicio, prueba} from '../controllers/servicios.controllers.js';  
 
 const router = Router ()
 
 //http://localhost:3000/api/servicios/test
-
+//http://localhost:3000/api/servicios/
+//get, post, put, delete
 router.route("/test").get(prueba)
+router.route("/").post(crearServicio)
+
 
 export default router;
