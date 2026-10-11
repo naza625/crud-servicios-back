@@ -16,3 +16,30 @@ export const crearServicio = async (req, res) => {
     res.status(500).json({ message: "Error interno del servidor" });
   }
 };
+
+
+export const listarServicios = async (req, res) => {
+  try {
+    const servicios = await Servicio.find();
+    res.status(200).json({ message: "servicios listados", data: servicios });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+};
+
+
+export const servicioBuscado = async (req, res) => {
+  try {
+    const servicio = await Servicio.findById(req.params.id);
+    if (!servicio) {
+      return res.status(404).json({ message: "servicio no encontrado" });
+    }
+    res.status(200).json({ message: "servicio encontrado"});
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+};

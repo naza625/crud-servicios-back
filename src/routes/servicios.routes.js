@@ -1,13 +1,14 @@
 import {Router} from 'express';
-import {crearServicio, prueba} from '../controllers/servicios.controllers.js';  
+import {crearServicio, listarServicios ,prueba, servicioBuscado} from '../controllers/servicios.controllers.js';  
 
 const router = Router ()
 
 //http://localhost:3000/api/servicios/test
 //http://localhost:3000/api/servicios/
 //get, post, put, delete
-router.route("/test").get(prueba)
-router.route("/").post(crearServicio)
+//router.route("/test").get(prueba)
+router.route("/").post(crearServicio).get(listarServicios)
+router.route("/:id").get(servicioBuscado)
 
 
 export default router;
