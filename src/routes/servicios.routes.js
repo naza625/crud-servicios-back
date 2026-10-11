@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import {crearServicio, listarServicios ,prueba, servicioBuscado, borrarServicio} from '../controllers/servicios.controllers.js';  
+import {crearServicio, listarServicios ,prueba, servicioBuscado, borrarServicio, editarServicio} from '../controllers/servicios.controllers.js';  
 
 const router = Router ()
 
@@ -8,7 +8,7 @@ const router = Router ()
 //get, post, put, delete
 //router.route("/test").get(prueba)
 router.route("/").post(crearServicio).get(listarServicios)
-router.route("/:id").get(servicioBuscado).delete(borrarServicio)
+router.route("/:id").get(servicioBuscado).delete(borrarServicio).put(editarServicio)
 
 
 export default router;

@@ -58,3 +58,16 @@ export const borrarServicio= async (req, res) => {
     res.status(500).json({ message: "Error al intentar borrar el servicio" });
   }
 };
+
+export const editarServicio = async (req, res) => {
+  try {
+    const servicioEditado = await Servicio.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!servicioEditado) {
+      return res.status(404).json({ message: "servicio no encontrado" });
+    }
+    res.status(200).json({ message: "servicio editado", data: servicioEditado });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error al intentar editar el servicio" });
+  }
+  }
