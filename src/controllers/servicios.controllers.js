@@ -37,9 +37,24 @@ export const servicioBuscado = async (req, res) => {
       return res.status(404).json({ message: "servicio no encontrado" });
     }
     res.status(200).json({ message: "servicio encontrado"});
-    
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error interno del servidor" });
+  }
+};
+
+
+
+export const borrarServicio= async (req, res) => {
+  try {
+    const servicioBorrado = await Servicio.findByIdAndDelete(req.params.id);
+    if (!servicioBorrado) {
+      return res.status(404).json({ message: "servicio no encontrado" });
+    }
+    res.status(200).json({ message: "servicio borrado" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error al intentar borrar el servicio" });
   }
 };
